@@ -12,4 +12,11 @@ public class FitnessHabit extends Habit {
     public void markComplete() {
         this.isComplete = true;
     }
+    public String getType() { 
+            return type; 
+    }
+    public int getDuration() { 
+        return duration; 
+    }
+
 }
