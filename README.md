@@ -1,2 +1,4 @@
 # FitCal-Habit-Tracker
 This project is a habit tracker focused on fitness and meal planning. The main screen will have a monthly calendar view where users can click on days to log their workouts, meals, or other habits. Color-coding and icons will help show progress at a glance. There's also space for adding daily notes or setting goals for the week/month.
+
+The calendar will be built using a 2D array to manage layout, and habit data will be stored in custom objects like FitnessHabit and MealHabit. Those will extend a base Habit class. Habit entries will be managed using collections like ArrayList or HashMap. File I/O will be used to save/load habit data. A background thread will run to send reminders or autosave progress. Recursion will calculate habit streaks. The GUI will be built with Swing and use event-driven features like buttons and pop-ups.
