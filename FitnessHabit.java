@@ -1,3 +1,5 @@
+package finalProject;
+
 public class FitnessHabit extends Habit {
     private String type;
     private int duration; // in minutes
