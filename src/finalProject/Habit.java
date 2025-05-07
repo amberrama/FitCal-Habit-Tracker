@@ -1,5 +1,4 @@
 package finalProject;
-
 public abstract class Habit {
     protected String name;
     protected String date;

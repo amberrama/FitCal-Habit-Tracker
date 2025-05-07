@@ -1,5 +1,4 @@
 package finalProject;
-
 public class ReminderThread extends Thread {
     private boolean running = true;
 
