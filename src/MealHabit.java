@@ -1,4 +1,3 @@
-package finalProject;
 public class MealHabit extends Habit {
     private String mealType; // e.g. Breakfast, Lunch, Dinner
     private int calories;

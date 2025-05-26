@@ -1,5 +1,3 @@
-package finalProject;
-
 public class FitnessHabit extends Habit {
     private String type;
     private int duration; // in minutes
@@ -14,11 +12,11 @@ public class FitnessHabit extends Habit {
     public void markComplete() {
         this.isComplete = true;
     }
-    public String getType() { 
-            return type; 
+    public String getType() {
+            return type;
     }
-    public int getDuration() { 
-        return duration; 
+    public int getDuration() {
+        return duration;
     }
 
 }

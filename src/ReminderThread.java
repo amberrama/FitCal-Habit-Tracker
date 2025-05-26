@@ -1,8 +1,8 @@
-package finalProject;
 public class ReminderThread extends Thread {
     private boolean running = true;
 
-    public void run() {
+    @Override
+	public void run() {
         while (running) {
             try {
                 // Placeholder: Print reminder every 10 seconds

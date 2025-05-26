@@ -1,4 +1,3 @@
-package finalProject;
 import java.util.ArrayList;
 
 public class FileHandler {
@@ -10,6 +9,6 @@ public class FileHandler {
 
     public static ArrayList<Habit> loadHabits(String filename) {
         // TODO: Implement loading from text file
-        return new ArrayList<Habit>();
+        return new ArrayList<>();
     }
 }
