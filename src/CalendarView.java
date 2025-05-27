@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.util.List;
 
 public class CalendarView extends JPanel {
     private JButton[][] buttons = new JButton[5][7];
@@ -21,6 +22,16 @@ public class CalendarView extends JPanel {
                     button.setFont(new Font("Arial", Font.BOLD, 16));
 
                     button.addActionListener(e -> {
+                        if (habitMap.containsKey(currentDay)) {
+                            JOptionPane.showMessageDialog(
+                                null,
+                                "You've already logged a habit for Day " + currentDay + ".",
+                                "Already Logged",
+                                JOptionPane.INFORMATION_MESSAGE
+                            );
+                            return;
+                        }
+
                         String input = JOptionPane.showInputDialog(
                             null,
                             "Log a habit for Day " + currentDay + ":",
@@ -29,8 +40,7 @@ public class CalendarView extends JPanel {
                         );
 
                         if (input != null && !input.trim().isEmpty()) {
-                            habitMap.putIfAbsent(currentDay, new ArrayList<>());
-                            habitMap.get(currentDay).add(input);
+                            habitMap.put(currentDay, new ArrayList<>(List.of(input)));
                             button.setText("✔ " + currentDay);
                         }
                     });
