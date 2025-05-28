@@ -54,15 +54,23 @@ public class CalendarView extends JPanel {
                 add(button);
             }
         }
-    }
-    
-    public void printHabitsToConsole() {
-        for (Map.Entry<Integer, ArrayList<String>> entry : habitMap.entrySet()) {
-            System.out.println("Day " + entry.getKey() + ":");
-            for (String habit : entry.getValue()) {
-                System.out.println("  - " + habit);
-            }
-        }
+
+        // Create a wrapper panel with a button underneath
+        JButton viewHabitsButton = new JButton("View Logged Habits");
+        viewHabitsButton.addActionListener(e -> showLoggedHabitsDialog());
+
+        JPanel wrapper = new JPanel(new BorderLayout());
+        wrapper.add(this, BorderLayout.CENTER);
+        wrapper.add(viewHabitsButton, BorderLayout.SOUTH);
+
+        // Display everything in a frame
+        JFrame frame = new JFrame("FitCal - Habit Tracker");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 500);
+        frame.setContentPane(wrapper);
+        frame.setVisible(true);
     }
 
+    private void showLoggedHabitsDialog() {
+    }
 }
