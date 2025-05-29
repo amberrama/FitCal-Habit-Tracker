@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
 
@@ -72,5 +71,42 @@ public class CalendarView extends JPanel {
     }
 
     private void showLoggedHabitsDialog() {
+        if (habitMap.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "No habits logged yet.",
+                "Habit Log",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Integer, ArrayList<String>> entry : habitMap.entrySet()) {
+            sb.append("Day ").append(entry.getKey()).append(": ");
+            sb.append(String.join(", ", entry.getValue()));
+            sb.append("\n");
+        }
+
+        JTextArea textArea = new JTextArea(sb.toString());
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setPreferredSize(new Dimension(300, 300));
+
+        JOptionPane.showMessageDialog(
+            null,
+            scrollPane,
+            "Logged Habits",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    public void printHabitsToConsole() {
+        for (Map.Entry<Integer, ArrayList<String>> entry : habitMap.entrySet()) {
+            System.out.println("Day " + entry.getKey() + ":");
+            for (String habit : entry.getValue()) {
+                System.out.println("  - " + habit);
+            }
+        }
     }
 }
